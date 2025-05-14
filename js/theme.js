@@ -1,13 +1,24 @@
+// theme.js
+
 function setTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    const selector = document.querySelector('.theme-switcher');
+    if (selector) selector.value = theme;
 }
 
-window.onload = function () {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
 
-  // Set dropdown value correctly on load
-  const selector = document.querySelector('.theme-switcher');
-  if (selector) selector.value = savedTheme;
-};
+    const selector = document.querySelector('.theme-switcher');
+    if (selector) selector.value = savedTheme;
+}
+
+// Init-Funktion global verfügbar machen
+window.setTheme = setTheme;
+window.initTheme = initTheme;
+
+// Falls das Theme-Switcher-Element beim DOM-Ready schon vorhanden ist
+document.addEventListener('DOMContentLoaded', initTheme);

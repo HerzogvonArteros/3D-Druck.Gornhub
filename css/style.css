@@ -1,20 +1,62 @@
 :root,
 [data-theme='light'] {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --accent-color: #1e90ff;
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #1e90ff;
 }
 
 [data-theme='dark'] {
-  --bg-color: #121212;
-  --text-color: #f0f0f0;
-  --accent-color: #1e90ff;
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --accent-color: #1e90ff;
 }
 
 [data-theme='purple'] {
-  --bg-color: #2e003e;
-  --text-color: #f0eaff;
-  --accent-color: #b95eff;
+    --bg-color: #2e003e;
+    --text-color: #f0eaff;
+    --accent-color: #b95eff;
+}
+
+[data-theme='terminal'] {
+    --bg-color: #0f0f0f;
+    --text-color: #00ff00;
+    --accent-color: #00cc66;
+}
+
+[data-theme='pastel'] {
+    --bg-color: #fef6f9;
+    --text-color: #5b5b5b;
+    --accent-color: #ffb3c1;
+}
+
+[data-theme='nord'] {
+    --bg-color: #2e3440;
+    --text-color: #d8dee9;
+    --accent-color: #88c0d0;
+}
+
+[data-theme='fire'] {
+    --bg-color: #1a0000;
+    --text-color: #ffcccb;
+    --accent-color: #ff4500;
+}
+
+[data-theme='ocean'] {
+    --bg-color: #001f3f;
+    --text-color: #d1ecf1;
+    --accent-color: #0074d9;
+}
+
+[data-theme='cyberpunk'] {
+    --bg-color: #0d0221;
+    --text-color: #ff00ff;
+    --accent-color: #00ffff;
+}
+
+[data-theme='nature'] {
+    --bg-color: #e8f5e9;
+    --text-color: #2e7d32;
+    --accent-color: #81c784;
 }
 body {
   background-color: var(--bg-color);
@@ -25,22 +67,22 @@ body {
 }
 
 .navbar {
-  background-color: var(--accent-color);
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+    background-color: var(--accent-color);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+    color: var(--text-color); /* ✅ Dynamisch nach Theme */
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.nav-link:hover {
-  text-decoration: underline;
-}
+    .nav-link:hover {
+        text-decoration: underline;
+    }
 
 h1 {
   text-align: center;
@@ -111,4 +153,37 @@ h1 {
 
 .image-grid a:hover img {
   transform: scale(1.05);
+}
+
+.project-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-bottom: 2em;
+  background-color: var(--highlight);
+  padding: 1.5em;
+  border-radius: 10px;
+}
+
+.project-info .info-left {
+  flex: 1 1 250px;
+}
+
+.project-info .info-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-info .info-left li {
+  margin-bottom: 0.5em;
+}
+
+.project-info .info-right {
+  flex: 2 1 400px;
+}
+
+.project-info .info-right p {
+  margin: 0;
+  line-height: 1.5;
 }

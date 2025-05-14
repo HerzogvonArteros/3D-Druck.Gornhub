@@ -3,55 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 1</title>
+  <title>The Pile</title>
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/theme.js" defer></script>
 </head>
+
 <body>
-  <nav class="navbar">
-    <a class="nav-link" href="/index.html">🏠 Home</a>
-    <a class="nav-link" href="/pages/catalog.html">📁 Catalog</a>
-    <select class="theme-switcher" onchange="setTheme(this.value)">
-      <option value="light">☀️ Light</option>
-      <option value="dark">🌙 Dark</option>
-      <option value="purple">🟣 Purple</option>
-    </select>
-  </nav>
 
-  <main class="content">
-    <h1>🧱 Project: ThePile</h1>
-<div class="image-grid">
+    <div id="navbar-container"></div>
+    <script>
+        fetch('/components/navbar.html')
+            .then(res => {
+                if (!res.ok) throw new Error('Navbar failed to load');
+                return res.text();
+            })
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
 
-  <a href="/images/projects/thepile/Image1.jpg" target="_blank">
-    <img src="/images/projects/thepile/Image1.jpg" alt="ThePile 1" />
-  </a>
-
-  <a href="/images/projects/thepile/Image2.jpg" target="_blank">
-    <img src="/images/projects/thepile/Image2.jpg" alt="ThePile 2" />
-  </a>
-
-  <a href="/images/projects/thepile/Image3.jpg" target="_blank">
-    <img src="/images/projects/thepile/Image3.jpg" alt="ThePile 3" />
-  </a>
-
-  <a href="/images/projects/thepile/Image4.jpg" target="_blank">
-    <img src="/images/projects/thepile/Image4.jpg" alt="ThePile 4" />
-  </a>
-
-  <a href="/images/projects/thepile/Image5.jpg" target="_blank">
-    <img src="/images/projects/thepile/Image5.jpg" alt="ThePile 5" />
-  </a>
-
-  <a href="/images/projects/thepile/Image6.jpg" target="_blank">
-    <img src="/images/projects/thepile/Image6.jpg" alt="ThePile 6" />
-  </a>
+                // Warte kurz, damit DOM aktualisiert ist
+                setTimeout(() => {
+                    if (typeof initTheme === 'function') {
+                        initTheme();
+                    } else {
+                        console.warn('initTheme is not defined');
+                    }
+                }, 100); // 100ms Pause für DOM-Fortschreibung
+            })
+            .catch(error => {
+                console.error('Error loading navbar:', error);
+                document.getElementById('navbar-container').innerHTML =
+                    '<p style="color: red; padding: 1em;">Failed to load navigation.</p>';
+            });
+    </script>
 
 
+    <main class="content">
+        <h1>🧱 Project: ThePile</h1>
+
+        <div class="project-info">
+            <div class="info-left">
+                <ul>
+                    <li><strong>Print Time:</strong> approx. 18 hours</li>
+                    <li><strong>Material:</strong> PLA+ (silk silver)</li>
+                    <li><strong>Printer:</strong> Anycubic Kobra 2</li>
+                    <li><strong>Print Settings:</strong> 0.2mm layer, 20% infill, no supports</li>
+                    <li><strong>Assembly:</strong> Glued in 3 parts, 2x 5mm rods for stabilization</li>
+                    <li><strong>Finish:</strong> Sanded + acrylic paint drybrushed</li>
+                    <li><strong>State:</strong> Printing,Glueing, sanding, priming, painting</li>
+                    <li><strong>Artist:</strong> Name of Model Creator </li>
+                    <li><strong>Source:</strong> Here Should be a link </li>
+
+                </ul>
+            </div>
+            <div class="info-right">
+                <p>
+                    <strong>Description:</strong>
+                    A fantasy-style longsword modeled in Blender, inspired by medieval designs. Printed in segments and assembled for display. Designed to be sturdy enough for cosplay use but also suitable as a wall prop.
+                </p>
+            </div>
+        </div>
+
+        <div class="image-grid">
+
+            <a href="/images/projects/thepile/Image1.jpg" target="_blank">
+                <img src="/images/projects/thepile/Image1.jpg" alt="ThePile 1" />
+            </a>
+
+            <a href="/images/projects/thepile/Image2.jpg" target="_blank">
+                <img src="/images/projects/thepile/Image2.jpg" alt="ThePile 2" />
+            </a>
+
+            <a href="/images/projects/thepile/Image3.jpg" target="_blank">
+                <img src="/images/projects/thepile/Image3.jpg" alt="ThePile 3" />
+            </a>
+
+            <a href="/images/projects/thepile/Image4.jpg" target="_blank">
+                <img src="/images/projects/thepile/Image4.jpg" alt="ThePile 4" />
+            </a>
+
+            <a href="/images/projects/thepile/Image5.jpg" target="_blank">
+                <img src="/images/projects/thepile/Image5.jpg" alt="ThePile 5" />
+            </a>
+
+            <a href="/images/projects/thepile/Image6.jpg" target="_blank">
+                <img src="/images/projects/thepile/Image6.jpg" alt="ThePile 6" />
+            </a>
 
 
 
 
-    </div>
-  </main>
+
+
+        </div>
+    </main>
 </body>
 </html>
